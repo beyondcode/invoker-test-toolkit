@@ -1,0 +1,8 @@
+{
+  "main": "index.php",
+  "output": "dist/php/index.phar",
+  "compression": "GZ",
+  "compactors": [
+    "KevinGH\\Box\\Compactor\\Php"
+  ]
+}

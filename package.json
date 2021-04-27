@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "name": "invoker-test-toolkit",
+  "displayName": "Invoker Test Toolkit",
+  "main": "dist/js/main.js",
+  "renderer": "dist/js/renderer.js",
+  "phar": "dist/php/index.phar",
+  "image": "https://invoker.dev/plugins/test_toolkit.png",
+  "engines": {
+    "invoker": "^2.0.0"
+  },
+  "scripts": {
+    "build-plugin": "npm run build-php && npm run production && zip -r plugin-$npm_package_version.zip dist package.json",
+    "build-php": "./vendor/bin/box compile",
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "devDependencies": {
+    "@beyondcode/invoker-plugin-typings": "^1.1.0",
+    "cross-env": "^5.0.0",
+    "electron": "^9.2.0",
+    "laravel-mix": "^5.0",
+    "ts-loader": "^8.2.0",
+    "typescript": "^4.2.4",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.6",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "dependencies": {}
+}
